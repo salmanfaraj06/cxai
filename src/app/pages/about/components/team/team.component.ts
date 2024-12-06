@@ -172,7 +172,7 @@ export class TeamComponent {
     {
       name: 'Sarah Johnson',
       role: 'CEO & Founder',
-      image: 'https://source.unsplash.com/random/400x400?portrait=1',
+      image: 'https://plus.unsplash.com/premium_photo-1690407617542-2f210cf20d7e?q=80&w=2417&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       social: {
         twitter: '#',
         linkedin: '#',
@@ -182,7 +182,7 @@ export class TeamComponent {
     {
       name: 'Michael Chen',
       role: 'CTO',
-      image: 'https://source.unsplash.com/random/400x400?portrait=2',
+      image: 'https://plus.unsplash.com/premium_photo-1689977927774-401b12d137d6?q=80&w=3408&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       social: {
         twitter: '#',
         linkedin: '#',
@@ -192,7 +192,7 @@ export class TeamComponent {
     {
       name: 'Emma Williams',
       role: 'Head of AI Research',
-      image: 'https://source.unsplash.com/random/400x400?portrait=3',
+      image: 'https://images.unsplash.com/photo-1521566652839-697aa473761a?q=80&w=3271&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       social: {
         linkedin: '#',
         github: '#'
@@ -201,7 +201,7 @@ export class TeamComponent {
     {
       name: 'David Kim',
       role: 'Lead Developer',
-      image: 'https://source.unsplash.com/random/400x400?portrait=4',
+      image: 'https://plus.unsplash.com/premium_photo-1689539137236-b68e436248de?q=80&w=3080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       social: {
         twitter: '#',
         github: '#'

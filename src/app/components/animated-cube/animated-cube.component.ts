@@ -110,9 +110,7 @@ import { CommonModule } from '@angular/common';
 
     @media (max-width: 768px) {
       .cube-container {
-        right: 5%;
-        top: 15%;
-        transform: scale(0.6);
+        display:none;
       }
     }
   `]
