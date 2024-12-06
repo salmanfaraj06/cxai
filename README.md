@@ -85,6 +85,9 @@ The environment configuration is stored in the `src/environments/` directory. Up
 export const environment = {
     production: false,
     openaiApiKey: 'your-openai-api-key'
+    emailServiceID: 'emailjs-service-id',
+    emailTemplateID: 'emailjs-template-id',
+    emailUserID: 'emailjs-public-key'
 };
 ```
 
