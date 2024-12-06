@@ -28,5 +28,8 @@
     "@angular/compiler-cli": "^18.1.0",
     "@types/nodemailer": "^6.4.17",
     "typescript": "~5.5.0"
+  },
+  "engines": {
+    "node": ">=18.19.0"
   }
 }
