@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
+import { EmailService } from '../../services/email.service';
 
 @Component({
   selector: 'app-contact',
@@ -293,6 +294,8 @@ export class ContactComponent {
     message: new FormControl('', [Validators.required, Validators.minLength(10)])
   });
 
+  constructor(private emailService: EmailService) {}
+
   isFieldInvalid(fieldName: string): boolean {
     const field = this.contactForm.get(fieldName);
     return field ? field.invalid && (field.dirty || field.touched) : false;
@@ -300,8 +303,16 @@ export class ContactComponent {
 
   onSubmit() {
     if (this.contactForm.valid) {
-      console.log(this.contactForm.value);
-      // Handle form submission
+      const formValue = this.contactForm.value;
+
+      this.emailService.sendEmail(formValue).then(
+        (response) => {
+          console.log('Email sent successfully', response);
+        },
+        (error) => {
+          console.error('Error sending email', error);
+        }
+      );
     }
   }
 }

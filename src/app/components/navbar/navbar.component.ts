@@ -12,16 +12,22 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
         <div class="logo">
           <a routerLink="/" class="logo-text">CX<span class="highlight">AI</span></a>
         </div>
-        <button class="menu-toggle" (click)="toggleNav()">&#9776;</button>
-        <div class="nav-links" [class.active]="navActive">
-          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-          <a routerLink="/about" routerLinkActive="active">About</a>
-          <a routerLink="/blog" routerLinkActive="active">Blog</a>
-          <a routerLink="/contact" routerLinkActive="active">Contact</a>
-        </div>
-        <div class="nav-buttons">
-          <button class="login-btn">Login</button>
-          <button class="start-btn">Get Started</button>
+        <button class="menu-toggle" (click)="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-content" [class.active]="isMenuOpen">
+          <div class="nav-links">
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">Home</a>
+            <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">About</a>
+            <a routerLink="/blog" routerLinkActive="active" (click)="closeMenu()">Blog</a>
+            <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
+          </div>
+          <div class="nav-buttons">
+            <button class="login-btn" (click)="closeMenu()">Login</button>
+            <button class="start-btn" (click)="closeMenu()">Get Started</button>
+          </div>
         </div>
       </div>
     </nav>
@@ -60,6 +66,13 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-grow: 1;
     }
 
     .nav-links {
@@ -127,56 +140,74 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
       display: none;
       background: transparent;
       border: none;
-      color: white;
-      font-size: 1.5rem;
       cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 5px 0;
+      transition: 0.3s;
     }
 
     @media (max-width: 768px) {
       .navbar {
         top: 10px;
-        padding: 0.5rem;
-      }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        gap: 1rem;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: rgba(10, 15, 28, 0.9);
-        padding: 1rem;
-        border-radius: 0 0 10px 10px;
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .nav-buttons {
-        gap: 0.5rem;
-      }
-
-      .login-btn {
-        padding: 0.5rem;
-      }
-
-      .start-btn {
         padding: 0.5rem 1rem;
       }
 
       .menu-toggle {
         display: block;
       }
+
+      .nav-content {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(10, 15, 28, 0.9);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+        display: none;
+      }
+
+      .nav-content.active {
+        display: flex;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .nav-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .login-btn, .start-btn {
+        width: 100%;
+        text-align: center;
+      }
     }
   `]
 })
 export class NavbarComponent {
-  navActive = false;
+  isMenuOpen = false;
 
-  toggleNav() {
-    this.navActive = !this.navActive;
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeMenu() {
+    this.isMenuOpen = false;
   }
 }
