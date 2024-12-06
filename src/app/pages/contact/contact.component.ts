@@ -305,7 +305,14 @@ export class ContactComponent {
     if (this.contactForm.valid) {
       const formValue = this.contactForm.value;
 
-      this.emailService.sendEmail(formValue).then(
+      const formData = {
+        from_name: formValue.name,
+        from_email: formValue.email,
+        subject: formValue.subject,
+        message: formValue.message
+      };
+
+      this.emailService.sendEmail(formData).then(
         (response) => {
           console.log('Email sent successfully', response);
         },
@@ -313,6 +320,7 @@ export class ContactComponent {
           console.error('Error sending email', error);
         }
       );
+      this.contactForm.reset();
     }
   }
 }
